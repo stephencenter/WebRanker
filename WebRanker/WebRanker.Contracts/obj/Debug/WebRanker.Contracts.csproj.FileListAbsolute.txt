@@ -1,0 +1,16 @@
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\WebRanker.Contracts.dll.config
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\WebRanker.Contracts.dll
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\WebRanker.Contracts.pdb
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.dll
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.xml
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csprojAssemblyReference.cache
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CoreCompileInputs.cache
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CopyComplete
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.dll
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.pdb
