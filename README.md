@@ -16,22 +16,36 @@ sort of "tier list", with every item ranked from favorite to least favorite.
 Example list:
 
 # Favorite Season
+
 Spring
+
 Summer
+
 Fall
+
 Winter
 
 Example matchups:
-[Item 1]  [Item 2] [Winner]
-Spring vs Summer | Spring
-Spring vs Fall   | Fall
-Spring vs Winter | Spring
-Summer vs Fall   | Fall
-Summer vs Winter | Winter
-Fall vs Winter   | Fall
+
+Spring vs Summer -> Spring
+
+Spring vs Fall -> Fall
+
+Spring vs Winter -> Spring
+
+Summer vs Fall -> Fall
+
+Summer vs Winter -> Winter
+
+Fall vs Winter -> Fall
+
 
 Example Rankings:
-Fall   [Voted for 3 times]
+
+Fall [Voted for 3 times]
+
 Spring [Voted for 2 times]
+
 Winter [Voted for 1 time]
+
 Summer [Voted for 0 times]
