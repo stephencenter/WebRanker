@@ -19,14 +19,14 @@ namespace WebRanker.Services
 
         public bool CreateItemList(CreateModel model)
         {
-            var entity = new Collection()
+            var collection = new Collection()
             {
                 OwnerID = _userID,
                 Title = model.Title,
                 CreatedUTC = DateTimeOffset.Now
             };
 
-            List<Item> item_list = new List<Item>();
+            List<Item> items = new List<Item>();
 
             foreach (string item in model.TheList.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
             {
@@ -34,28 +34,28 @@ namespace WebRanker.Services
                 {
                     OwnerID = _userID,
                     ItemName = item,
-                    CollectionID = model.ListID,
+                    CollectionID = collection.ListID,
                     RankingPoints = 0
                 };
 
-                item_list.Add(new_item);
+                items.Add(new_item);
             }
 
-            return SaveDataToDatabase(entity, item_list);
+            return SaveDataToDatabase(collection, items);
         }
 
-        public bool SaveDataToDatabase(Collection list, List<Item> item_list)
+        public bool SaveDataToDatabase(Collection collection, List<Item> items)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Collections.Add(list);
+                ctx.Collections.Add(collection);
 
-                foreach (Item x in item_list)
+                foreach (Item x in items)
                 {
                     ctx.ListOfItems.Add(x);
                 }
 
-                return ctx.SaveChanges() == 1 + item_list.Count;
+                return ctx.SaveChanges() == 1 + items.Count;
             }
         } 
 
