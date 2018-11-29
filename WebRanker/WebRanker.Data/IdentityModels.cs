@@ -32,8 +32,8 @@ namespace WebRanker.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<UnrankedList> UnrankedLists { get; set; }
-        public DbSet<RankedList> RankedLists { get; set; }
+        public DbSet<ItemList> Collections { get; set; }
+        public DbSet<Item> ListOfItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
