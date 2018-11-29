@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebRanker.Data
 {
-    public class ItemList
+    public class Collection
     {
         [Key]
         public int ListID { get; set; }

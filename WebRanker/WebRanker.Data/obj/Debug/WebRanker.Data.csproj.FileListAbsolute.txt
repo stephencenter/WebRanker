@@ -30,3 +30,6 @@ C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Dat
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.csproj.CopyComplete
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.InitialCreate.resources
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.csproj.GenerateResource.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.fixingstuff.resources

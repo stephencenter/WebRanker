@@ -17,14 +17,16 @@ namespace WebRanker.Services
             _userID = userID;
         }
 
-        public bool CreateItemList(CreateList model)
+        public bool CreateItemList(CreateModel model)
         {
-            var entity = new ItemList()
+            var entity = new Collection()
             {
                 OwnerID = _userID,
                 Title = model.Title,
                 CreatedUTC = DateTimeOffset.Now
             };
+
+            List<Item> item_list = new List<Item>();
 
             foreach (string item in model.TheList.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
             {
@@ -36,20 +38,28 @@ namespace WebRanker.Services
                     RankingPoints = 0
                 };
 
-                using (var ctx = new ApplicationDbContext())
-                {
-                    ctx.ListOfItems.Add(new_item);
-                }
+                item_list.Add(new_item);
             }
 
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.Collections.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
+            return SaveDataToDatabase(entity, item_list);
         }
 
-        public IEnumerable<ViewList> GetNotes()
+        public bool SaveDataToDatabase(Collection list, List<Item> item_list)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Collections.Add(list);
+
+                foreach (Item x in item_list)
+                {
+                    ctx.ListOfItems.Add(x);
+                }
+
+                return ctx.SaveChanges() == 1 + item_list.Count;
+            }
+        } 
+
+        public IEnumerable<ViewModel> GetItemList()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -59,7 +69,7 @@ namespace WebRanker.Services
                         .Where(e => e.OwnerID == _userID)
                         .Select(
                             e =>
-                                new ViewList
+                                new ViewModel
                                 {
                                     ListID = e.ListID,
                                     Title = e.Title,

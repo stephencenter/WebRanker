@@ -32,7 +32,7 @@ namespace WebRanker.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<ItemList> Collections { get; set; }
+        public DbSet<Collection> Collections { get; set; }
         public DbSet<Item> ListOfItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
