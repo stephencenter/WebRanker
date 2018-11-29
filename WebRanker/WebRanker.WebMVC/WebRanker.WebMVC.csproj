@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UnrankedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +242,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Unranked\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +259,28 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebRanker.Contracts\WebRanker.Contracts.csproj">
+      <Project>{0ab37b42-bcca-4972-9dd7-d2fd0b9722b7}</Project>
+      <Name>WebRanker.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebRanker.Data\WebRanker.Data.csproj">
+      <Project>{bf7982cc-db87-40ce-b571-14d4dd598cea}</Project>
+      <Name>WebRanker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebRanker.Models\WebRanker.Models.csproj">
+      <Project>{57d01770-33b8-42e7-9f32-c2d98f637365}</Project>
+      <Name>WebRanker.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebRanker.Services\WebRanker.Services.csproj">
+      <Project>{46e983fc-4aff-4056-9248-bd1fa09a78fc}</Project>
+      <Name>WebRanker.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebRanker.Tests\WebRanker.Tests.csproj">
+      <Project>{5ed8c3b1-1ff1-4aae-a88c-ac3eef266f3c}</Project>
+      <Name>WebRanker.Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -21,3 +21,26 @@ D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanke
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.csproj.CopyComplete
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.dll
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\WebRanker.Tests.dll.config
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\WebRanker.Tests.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\WebRanker.Tests.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\EntityFramework.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\EntityFramework.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.csprojAssemblyReference.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.csproj.CoreCompileInputs.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.csproj.CopyComplete
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Tests\obj\Debug\WebRanker.Tests.pdb

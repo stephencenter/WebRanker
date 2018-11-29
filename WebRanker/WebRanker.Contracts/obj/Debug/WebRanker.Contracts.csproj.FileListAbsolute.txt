@@ -14,3 +14,19 @@ D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebR
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CopyComplete
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.dll
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\WebRanker.Contracts.dll.config
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\WebRanker.Contracts.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\WebRanker.Contracts.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csprojAssemblyReference.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CopyComplete
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.pdb
