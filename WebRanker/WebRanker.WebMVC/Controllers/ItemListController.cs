@@ -12,13 +12,25 @@ namespace WebRanker.WebMVC.Controllers
     {
         public ActionResult Index()
         {
-            var model = new ViewLists[0];
+            var model = new ViewList[0];
             return View(model);
         }
 
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CreateList model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            return View(model);
         }
     }
 }

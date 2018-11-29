@@ -25,7 +25,6 @@ C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Con
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csprojAssemblyReference.cache
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CoreCompileInputs.cache
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.csproj.CopyComplete
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Contracts\obj\Debug\WebRanker.Contracts.dll

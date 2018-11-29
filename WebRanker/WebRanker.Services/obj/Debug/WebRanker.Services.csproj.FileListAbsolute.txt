@@ -28,3 +28,10 @@ C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Ser
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\obj\Debug\WebRanker.Services.csproj.CopyComplete
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\obj\Debug\WebRanker.Services.dll
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\obj\Debug\WebRanker.Services.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\obj\Debug\WebRanker.Services.csprojAssemblyReference.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\bin\Debug\WebRanker.Data.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\bin\Debug\WebRanker.Models.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\bin\Debug\WebRanker.Data.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\bin\Debug\WebRanker.Data.dll.config
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\bin\Debug\WebRanker.Models.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Services\bin\Debug\WebRanker.Models.dll.config
