@@ -88,5 +88,24 @@ namespace WebRanker.Services
                 return query.ToArray();
             }
         }
+
+        public DetailsModel GetCollectionByID(int ListID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var found_collection = ctx.Collections.Single(e => e.ListID == ListID && e.OwnerID == _userID);
+                List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
+                found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
+
+                return new DetailsModel
+                {
+                    ListID = found_collection.ListID,
+                    Title = found_collection.Title,
+                    CreatedUTC = found_collection.CreatedUTC,
+                    ModifiedUTC = found_collection.ModifiedUTC,
+                    TheList = found_list
+                };
+            }
+        }
     }
 }

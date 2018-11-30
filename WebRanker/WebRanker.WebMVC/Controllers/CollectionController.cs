@@ -50,5 +50,13 @@ namespace WebRanker.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            var service = GetCollectionService ();
+            var model = service.GetCollectionByID(id);
+
+            return View(model);
+        }
     }
 }
