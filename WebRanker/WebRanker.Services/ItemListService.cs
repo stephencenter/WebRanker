@@ -34,7 +34,7 @@ namespace WebRanker.Services
                 {
                     OwnerID = _userID,
                     ItemName = item,
-                    CollectionID = collection.ListID,
+                    CollectionID = 0,
                     RankingPoints = 0
                 };
 
@@ -49,15 +49,23 @@ namespace WebRanker.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Collections.Add(collection);
+                ctx.SaveChanges();
+
+                // Get the ListID of the collection we just added
+                var id = ctx .Collections .Single(
+                    c => c.OwnerID == collection.OwnerID && 
+                    c.CreatedUTC == collection.CreatedUTC && 
+                    c.Title == collection.Title).ListID;
 
                 foreach (Item x in items)
                 {
+                    x.CollectionID = id;
                     ctx.ListOfItems.Add(x);
                 }
 
-                return ctx.SaveChanges() == 1 + items.Count;
+                return ctx.SaveChanges() == items.Count;
             }
-        } 
+        }
 
         public IEnumerable<ViewModel> GetItemList()
         {

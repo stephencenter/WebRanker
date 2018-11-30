@@ -10,9 +10,6 @@ namespace WebRanker.Models
     public class CreateModel
     {
         [Required]
-        public int ListID { get; set; }
-
-        [Required]
         public string Title { get; set; }
 
         [Required]
