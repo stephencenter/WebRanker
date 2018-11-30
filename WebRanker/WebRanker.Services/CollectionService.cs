@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Combinatorics.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -105,6 +106,18 @@ namespace WebRanker.Services
                     ModifiedUTC = found_collection.ModifiedUTC,
                     TheList = found_list
                 };
+            }
+        }
+
+        public List<IList<Item>> GetNChooseTwo(int ListID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var found_collection = ctx.Collections.Single(e => e.ListID == ListID && e.OwnerID == _userID);
+                List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
+                found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
+
+                return new Combinations<Item>(found_list, 2).ToList(); ;
             }
         }
     }
