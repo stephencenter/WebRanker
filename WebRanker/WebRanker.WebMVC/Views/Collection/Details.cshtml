@@ -1,0 +1,46 @@
+﻿@using WebRanker.Data
+@model WebRanker.Models.DetailsModel
+
+@{ViewBag.Title = "Details";}
+
+<div>
+    <h2>
+        Your rankings for @Html.DisplayFor(model => model.Title)
+    </h2>
+
+    <h2 style="font-size: small">
+        Created on @Html.DisplayFor(model => model.CreatedUTC)
+    </h2>
+
+    <h2 style="font-size: small">
+        @if (Model.ModifiedUTC.HasValue)
+        {
+            <text>Last modified on</text> @Model.ModifiedUTC;
+        } else {
+            <text>Last modified on</text> @Model.CreatedUTC;
+        }
+    </h2>
+</div>
+
+<div ;">
+    <dl class="dl-horizontal">
+        @foreach (Item i in Model.TheList)
+        {
+            string ranking = (Model.TheList.Count - i.RankingPoints).ToString();
+
+            <dt>
+                @ranking.
+            </dt>
+
+            <dd>
+                @i.ItemName
+            </dd>
+        }
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Rank List", "Rank", new { id = Model.ListID }) /
+    @Html.ActionLink("Edit List", "Edit", new { id = Model.ListID }) /
+    @Html.ActionLink("Back to Index", "Index")
+</p>

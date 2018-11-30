@@ -30,3 +30,6 @@ C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Mod
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Models\obj\Debug\WebRanker.Models.csproj.CopyComplete
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Models\obj\Debug\WebRanker.Models.dll
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Models\obj\Debug\WebRanker.Models.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Models\bin\Debug\WebRanker.Data.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Models\bin\Debug\WebRanker.Data.pdb
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Models\bin\Debug\WebRanker.Data.dll.config
