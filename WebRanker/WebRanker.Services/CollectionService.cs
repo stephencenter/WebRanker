@@ -8,16 +8,16 @@ using WebRanker.Models;
 
 namespace WebRanker.Services
 {
-    public class ItemListService
+    public class CollectionService
     {
         private readonly Guid _userID;
 
-        public ItemListService(Guid userID)
+        public CollectionService(Guid userID)
         {
             _userID = userID;
         }
 
-        public bool CreateItemList(CreateModel model)
+        public bool CreateCollection(CreateModel model)
         {
             var collection = new Collection()
             {
@@ -67,7 +67,7 @@ namespace WebRanker.Services
             }
         }
 
-        public IEnumerable<ViewModel> GetItemList()
+        public IEnumerable<ViewModel> GetCollection()
         {
             using (var ctx = new ApplicationDbContext())
             {

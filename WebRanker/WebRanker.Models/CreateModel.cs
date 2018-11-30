@@ -13,6 +13,7 @@ namespace WebRanker.Models
         public string Title { get; set; }
 
         [Required]
+        [Display(Name="Your list")]
         public string TheList { get; set; }
 
         public override string ToString() => Title;

@@ -10,17 +10,17 @@ using WebRanker.Services;
 namespace WebRanker.WebMVC.Controllers
 {
     [Authorize]
-    public class ItemListController : Controller
+    public class CollectionController : Controller
     {
-        public ItemListService GetItemListService()
+        public CollectionService GetCollectionService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
-            return new ItemListService(userID);
+            return new CollectionService(userID);
         }
 
         public ActionResult Index()
         {
-            var model = GetItemListService().GetItemList();
+            var model = GetCollectionService().GetCollection();
             return View(model);
         }
 
@@ -38,9 +38,9 @@ namespace WebRanker.WebMVC.Controllers
                 return View(model);
             }
 
-            var service = GetItemListService();
+            var service = GetCollectionService();
 
-            if (service.CreateItemList(model))
+            if (service.CreateCollection(model))
             {
                 TempData["SaveResult"] = "List created!";
                 return RedirectToAction("Index");
