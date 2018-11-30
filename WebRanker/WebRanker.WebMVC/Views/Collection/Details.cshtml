@@ -3,6 +3,7 @@
 
 @{ViewBag.Title = "Details";}
 
+
 <div>
     <h2>
         Your rankings for @Html.DisplayFor(model => model.Title)
@@ -16,13 +17,16 @@
         @if (Model.ModifiedUTC.HasValue)
         {
             <text>Last modified on</text> @Model.ModifiedUTC;
-        } else {
+        }
+
+        else
+        {
             <text>Last modified on</text> @Model.CreatedUTC;
         }
     </h2>
 </div>
 
-<div ;">
+<div>
     <dl class="dl-horizontal">
         @foreach (Item i in Model.TheList)
         {
@@ -40,7 +44,7 @@
 </div>
 
 <p>
-    @Html.ActionLink("Rank List", "Rank", new { id = Model.ListID }) /
-    @Html.ActionLink("Edit List", "Edit", new { id = Model.ListID }) /
-    @Html.ActionLink("Back to Index", "Index")
+    @Html.ActionLink("Rank List", "Rank", "Collection", new { id = Model.ListID }, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Edit List", "Edit", "Collection", new { id = Model.ListID }, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Back to Index", "Index", "Collection", null, new { @class = "btn btn-primary btn-large" })
 </p>

@@ -38,10 +38,10 @@
             @Html.DisplayFor(modelItem => item.CreatedUTC)
         </td>
         <td>
-            @Html.ActionLink("Rank", "Rank", new { id=item.ListID }) /
-            @Html.ActionLink("View Rankings", "Details", new { id = item.ListID }) /
-            @Html.ActionLink("Edit List", "Edit", new { id = item.ListID }) /
-            @Html.ActionLink("Delete", "Delete", new { id = item.ListID })
+            @Html.ActionLink("Rank List", "Rank", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("View Rankings", "Details", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Edit List", "Edit", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
         </td>
     </tr>
     }
