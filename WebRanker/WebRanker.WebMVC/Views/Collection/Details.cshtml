@@ -30,7 +30,7 @@
     <dl class="dl-horizontal">
         @foreach (Item i in Model.TheList)
         {
-            string ranking = (Model.TheList.Count - i.RankingPoints).ToString();
+            string ranking = (Model.TheList.FindIndex(e => e.ItemID == i.ItemID) + 1).ToString();
 
             <dt>
                 @ranking.

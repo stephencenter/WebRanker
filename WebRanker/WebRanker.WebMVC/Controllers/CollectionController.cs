@@ -58,5 +58,10 @@ namespace WebRanker.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Rank(int id)
+        {
+            return View();
+        }
     }
 }

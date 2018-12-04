@@ -1,0 +1,24 @@
+﻿@model WebRanker.Models.RankModel
+
+@{ViewBag.Title = "Rank";}
+
+<h2>Rank your list!</h2>
+<h2 style="font-size: small">Choose your favorite of these two</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="width: 25%">
+        <input type="button" name="itembutton1" class="btn btn-success btn-block" value="Item 1" />
+        <p style="font-size: large; text-align:center; vertical-align: central">vs</p>
+        <input type="button" name="itembutton2" class="btn btn-success btn-block" value="Item 2" />
+
+        <hr />
+        @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
+    </div>
+}
+
+@section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+}

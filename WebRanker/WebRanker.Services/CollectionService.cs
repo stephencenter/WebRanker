@@ -120,5 +120,20 @@ namespace WebRanker.Services
                 return new Combinations<Item>(found_list, 2).ToList(); ;
             }
         }
+
+        public void ResetRankingPoints(int ListID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var found_items = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID);
+                
+                foreach (Item i in found_items)
+                {
+                    i.RankingPoints = 0;
+                }
+
+                ctx.SaveChanges();
+            }
+        }
     }
 }
