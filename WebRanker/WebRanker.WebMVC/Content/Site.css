@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+th, td {
+    border-bottom: 1px solid #424242;
+}
