@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WebRanker.Data;
 
 namespace WebRanker.Models
 {
-    public class RankModel
+    public class RankModel : GenericModel
     {
         public int ListID { get; set; }
         public string Title { get; set; }
+        public List<IList<Item>> MatchupList { get; set; }
     }
 }

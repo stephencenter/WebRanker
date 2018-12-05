@@ -90,7 +90,7 @@ namespace WebRanker.Services
             }
         }
 
-        public DetailsModel GetCollectionByID(int ListID)
+        public GenericModel GetCollectionByID(int ListID, bool is_detail)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -98,14 +98,27 @@ namespace WebRanker.Services
                 List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
                 found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
 
-                return new DetailsModel
+                if (is_detail)
                 {
-                    ListID = found_collection.ListID,
-                    Title = found_collection.Title,
-                    CreatedUTC = found_collection.CreatedUTC,
-                    ModifiedUTC = found_collection.ModifiedUTC,
-                    TheList = found_list
-                };
+                    return new DetailsModel
+                    {
+                        ListID = found_collection.ListID,
+                        Title = found_collection.Title,
+                        CreatedUTC = found_collection.CreatedUTC,
+                        ModifiedUTC = found_collection.ModifiedUTC,
+                        TheList = found_list
+                    };
+                }
+
+                else
+                {
+                    return new RankModel
+                    {
+                        ListID = found_collection.ListID,
+                        Title = found_collection.Title,
+                        MatchupList = GetNChooseTwo(found_collection.ListID)
+                    };
+                }
             }
         }
 
@@ -113,7 +126,6 @@ namespace WebRanker.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var found_collection = ctx.Collections.Single(e => e.ListID == ListID && e.OwnerID == _userID);
                 List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
                 found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
 

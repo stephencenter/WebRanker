@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebRanker.Models;
 using WebRanker.Services;
+using WebRanker.Data;
 
 namespace WebRanker.WebMVC.Controllers
 {
@@ -53,15 +54,18 @@ namespace WebRanker.WebMVC.Controllers
 
         public ActionResult Details(int id)
         {
-            var service = GetCollectionService ();
-            var model = service.GetCollectionByID(id);
+            var service = GetCollectionService();
+            var model = service.GetCollectionByID(id, true);
 
             return View(model);
         }
 
         public ActionResult Rank(int id)
         {
-            return View();
+            var service = GetCollectionService();
+            var model = service.GetCollectionByID(id, false);
+
+            return View(model);
         }
     }
 }

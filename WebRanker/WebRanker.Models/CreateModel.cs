@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebRanker.Models
 {
-    public class CreateModel
+    public class CreateModel : GenericModel
     {
         [Required]
         public string Title { get; set; }
