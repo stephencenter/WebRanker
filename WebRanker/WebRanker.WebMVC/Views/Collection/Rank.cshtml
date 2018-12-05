@@ -1,4 +1,5 @@
-﻿@model WebRanker.Models.RankModel
+﻿@model WebRanker.Models.RankModel 
+@using WebRanker.Data
 
 @{ViewBag.Title = "Rank";}
 
@@ -10,9 +11,12 @@
     @Html.AntiForgeryToken()
 
     <div style="width: 25%">
-        <input type="button" name="itembutton1" class="btn btn-success btn-block" value="Item 1" />
-        <p style="font-size: large; text-align:center; vertical-align: central">vs</p>
-        <input type="button" name="itembutton2" class="btn btn-success btn-block" value="Item 2" />
+        @foreach (IList<Item> matchup in Model.MatchupList)
+        {
+            <input type="button" name="itembutton1" class="btn btn-success btn-block" value=@matchup[0].ItemName>
+            <p style="font-size: large; text-align:center">vs</p>
+            <input type="button" name="itembutton2" class="btn btn-success btn-block" value=@matchup[1].ItemName>
+        }
 
         <hr />
         @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
@@ -20,5 +24,5 @@
 }
 
 @section Scripts {
-@Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")
 }

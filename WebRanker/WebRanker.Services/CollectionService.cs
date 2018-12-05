@@ -126,7 +126,7 @@ namespace WebRanker.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
+                var found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
                 found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
 
                 return new Combinations<Item>(found_list, 2).ToList(); ;
@@ -144,6 +144,16 @@ namespace WebRanker.Services
                     i.RankingPoints = 0;
                 }
 
+                ctx.SaveChanges();
+            }
+        }
+
+        public void IncreaseItemRankingPoints(int ItemID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var found_item = ctx.ListOfItems.Single(i => i.ItemID == ItemID && i.OwnerID == _userID);
+                found_item.RankingPoints++;
                 ctx.SaveChanges();
             }
         }
