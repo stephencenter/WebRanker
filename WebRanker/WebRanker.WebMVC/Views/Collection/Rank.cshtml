@@ -1,6 +1,7 @@
-﻿@model WebRanker.Models.RankModel 
-@using WebRanker.Data
+﻿@using WebRanker.Data
+@using WebRanker.Services
 
+@model WebRanker.Data.Matchup
 @{ViewBag.Title = "Rank";}
 
 <h2>Rank your list!</h2>
@@ -10,19 +11,15 @@
 {
     @Html.AntiForgeryToken()
 
-<div style="width: 25%">
-    @foreach (IList<Item> matchup in Model.MatchupList)
-    {
-        @:<input type="button" name="itembutton1" class="btn btn-success btn-block" value=@matchup[0].ItemName onclick="location.href=@Url.Action("IncrementAction", "Collection" , new { ItemID=matchup[0].ItemID })">
-        <p style="font-size: large; text-align:center">vs</p>
-        @:<input type="button" name="itembutton2" class="btn btn-success btn-block" value=@matchup[1].ItemName onclick="location.href=@Url.Action("IncrementAction", "Collection" , new { ItemID=matchup[1].ItemID })">
-    }
+    <div style="width: 25%">
+        <input type="radio" id="itemradio" name="choice1" value=@Model.FirstItem.ItemID>
+        <label for="contactChoice3">@Model.FirstItem.ItemName</label>
+        <hr />
 
-    <hr />
-    @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
-</div>
-}
+        <input type="radio" id="itemradio" name="choice2" value=@Model.SecondItem.ItemID>
+        <label for="contactChoice3">@Model.SecondItem.ItemName</label>
+        <hr />
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+        @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
+    </div>
 }

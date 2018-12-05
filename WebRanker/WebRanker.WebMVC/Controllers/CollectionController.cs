@@ -68,10 +68,11 @@ namespace WebRanker.WebMVC.Controllers
             return View(model);
         }
 
-        public void IncrementAction(int ItemID)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Rank(Matchup matchup)
         {
-            var service = GetCollectionService();
-            service.IncreaseItemRankingPoints(ItemID);
+            return View(matchup);
         }
     }
 }
