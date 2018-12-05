@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="CreateModel.cs" />
     <Compile Include="DetailsModel.cs" />
+    <Compile Include="GenericModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankModel.cs" />
     <Compile Include="ViewModel.cs" />

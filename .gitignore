@@ -2,3 +2,6 @@
 /WebRanker/WebRanker.WebMVC/App_Data/WebRanker_log.ldf
 /WebRanker/WebRanker.WebMVC/App_Data/WebRanker.mdf
 /WebRanker/packages/
+/WebRanker/WebRanker.Models/bin/Debug/
+/WebRanker/WebRanker.WebMVC/bin/
+/WebRanker/WebRanker.WebMVC/obj/Debug/
