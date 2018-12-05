@@ -10,17 +10,17 @@
 {
     @Html.AntiForgeryToken()
 
-    <div style="width: 25%">
-        @foreach (IList<Item> matchup in Model.MatchupList)
-        {
-            <input type="button" name="itembutton1" class="btn btn-success btn-block" value=@matchup[0].ItemName>
-            <p style="font-size: large; text-align:center">vs</p>
-            <input type="button" name="itembutton2" class="btn btn-success btn-block" value=@matchup[1].ItemName>
-        }
+<div style="width: 25%">
+    @foreach (IList<Item> matchup in Model.MatchupList)
+    {
+        @:<input type="button" name="itembutton1" class="btn btn-success btn-block" value=@matchup[0].ItemName onclick="location.href=@Url.Action("IncrementAction", "Collection" , new { ItemID=matchup[0].ItemID })">
+        <p style="font-size: large; text-align:center">vs</p>
+        @:<input type="button" name="itembutton2" class="btn btn-success btn-block" value=@matchup[1].ItemName onclick="location.href=@Url.Action("IncrementAction", "Collection" , new { ItemID=matchup[1].ItemID })">
+    }
 
-        <hr />
-        @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
-    </div>
+    <hr />
+    @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
+</div>
 }
 
 @section Scripts {

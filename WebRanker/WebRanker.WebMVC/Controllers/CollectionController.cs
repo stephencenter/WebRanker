@@ -67,5 +67,11 @@ namespace WebRanker.WebMVC.Controllers
 
             return View(model);
         }
+
+        public void IncrementAction(int ItemID)
+        {
+            var service = GetCollectionService();
+            service.IncreaseItemRankingPoints(ItemID);
+        }
     }
 }
