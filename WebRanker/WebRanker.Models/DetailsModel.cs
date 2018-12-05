@@ -8,7 +8,7 @@ using WebRanker.Data;
 
 namespace WebRanker.Models
 {
-    public class DetailsModel : GenericModel
+    public class DetailsModel
     {
         public int ListID { get; set; }
         public string Title { get; set; }

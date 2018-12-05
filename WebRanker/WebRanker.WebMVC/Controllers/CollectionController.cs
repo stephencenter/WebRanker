@@ -55,7 +55,7 @@ namespace WebRanker.WebMVC.Controllers
         public ActionResult Details(int id)
         {
             var service = GetCollectionService();
-            var model = service.GetCollectionByID(id, true);
+            var model = service.GetCollectionByID(id);
 
             return View(model);
         }
@@ -63,16 +63,16 @@ namespace WebRanker.WebMVC.Controllers
         public ActionResult Rank(int id)
         {
             var service = GetCollectionService();
-            var model = service.GetCollectionByID(id, false);
+            var model = service.GetMatchups(id);
 
-            return View(model);
+            return View(model[0]);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Rank(Matchup matchup)
+        public ActionResult Rank(Matchup model)
         {
-            return View(matchup);
+            return View(model);
         }
     }
 }

@@ -11,15 +11,16 @@
 {
     @Html.AntiForgeryToken()
 
-    <div style="width: 25%">
-        <input type="radio" id="itemradio" name="choice1" value=@Model.FirstItem.ItemID>
-        <label for="contactChoice3">@Model.FirstItem.ItemName</label>
-        <hr />
+    <div id="rankradio">
+        <input type="radio" id="choice1" name="choice1" value=@Model.FirstItem.ItemID>
+        <label for="choice1">@Model.FirstItem.ItemName</label>
+        <br />
+        <input type="radio" id="choice2" name="choice2" value=@Model.SecondItem.ItemID>
+        <label for="choice2">@Model.SecondItem.ItemName</label>
 
-        <input type="radio" id="itemradio" name="choice2" value=@Model.SecondItem.ItemID>
-        <label for="contactChoice3">@Model.SecondItem.ItemName</label>
-        <hr />
-
-        @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
+        <div>
+            <button class="btn btn-success" type="submit">Submit</button>
+            @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
+        </div>
     </div>
 }

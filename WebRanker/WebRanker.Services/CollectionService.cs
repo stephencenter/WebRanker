@@ -90,7 +90,7 @@ namespace WebRanker.Services
             }
         }
 
-        public GenericModel GetCollectionByID(int ListID, bool is_detail)
+        public DetailsModel GetCollectionByID(int ListID)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -98,38 +98,30 @@ namespace WebRanker.Services
                 List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
                 found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
 
-                if (is_detail)
+                return new DetailsModel
                 {
-                    return new DetailsModel
-                    {
-                        ListID = found_collection.ListID,
-                        Title = found_collection.Title,
-                        CreatedUTC = found_collection.CreatedUTC,
-                        ModifiedUTC = found_collection.ModifiedUTC,
-                        TheList = found_list
-                    };
-                }
-
-                else
-                {
-                    return new RankModel
-                    {
-                        ListID = found_collection.ListID,
-                        Title = found_collection.Title,
-                        MatchupList = GetNChooseTwo(found_collection.ListID)
-                    };
-                }
+                    ListID = found_collection.ListID,
+                    Title = found_collection.Title,
+                    CreatedUTC = found_collection.CreatedUTC,
+                    ModifiedUTC = found_collection.ModifiedUTC,
+                    TheList = found_list
+                };
             }
         }
 
-        public List<IList<Item>> GetNChooseTwo(int ListID)
+        public List<Matchup> GetMatchups(int ListID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
-                found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
+                var combo_list = new Combinations<Item>(found_list.OrderByDescending(e => e.RankingPoints).ToList(), 2);
+                var matchup_list = new List<Matchup>();
 
-                return new Combinations<Item>(found_list, 2).ToList(); ;
+                foreach (IList<Item> i in combo_list) {
+                    matchup_list.Add(new Matchup{FirstItem = i[0], SecondItem = i[1]});
+                }
+
+                return matchup_list;
             }
         }
 

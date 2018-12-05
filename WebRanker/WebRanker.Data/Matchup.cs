@@ -8,6 +8,7 @@ namespace WebRanker.Data
 {
     public class Matchup
     {
+        public int ListID { get; set; }
         public Item FirstItem { get; set; }
         public Item SecondItem { get; set; }
     }
