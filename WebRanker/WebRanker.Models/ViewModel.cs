@@ -11,7 +11,8 @@ namespace WebRanker.Models
     {
         public int ListID { get; set; }
         public string Title { get; set; }
-        
+        public int Count { get; set; }
+
         [Display(Name="Created on")]
         public DateTimeOffset CreatedUTC { get; set; }
 

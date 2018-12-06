@@ -72,19 +72,16 @@ namespace WebRanker.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
-                    ctx
-                        .Collections
-                        .Where(e => e.OwnerID == _userID)
-                        .Select(
-                            e =>
-                                new ViewModel
-                                {
-                                    ListID = e.ListID,
-                                    Title = e.Title,
-                                    CreatedUTC = e.CreatedUTC
-                                }
-                        );
+
+                var query = ctx.Collections.Where(e => e.OwnerID == _userID).Select(
+                    e => new ViewModel
+                    {
+                        ListID = e.ListID,
+                        Title = e.Title,
+                        CreatedUTC = e.CreatedUTC,
+                        Count = ctx.ListOfItems.Where(i => i.CollectionID == e.ListID && i.OwnerID == _userID).Count()
+                    }
+                );
 
                 return query.ToArray();
             }
