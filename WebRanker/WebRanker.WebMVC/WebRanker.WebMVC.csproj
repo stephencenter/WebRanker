@@ -246,6 +246,7 @@
     <Content Include="Views\Collection\Index.cshtml" />
     <Content Include="Views\Collection\Details.cshtml" />
     <Content Include="Views\Collection\Rank.cshtml" />
+    <Content Include="Views\Collection\Help.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

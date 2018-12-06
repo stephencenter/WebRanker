@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="Matchup.cs" />
     <Compile Include="Migrations\201811291842009_InitialCreate.cs" />
     <Compile Include="Migrations\201811291842009_InitialCreate.Designer.cs">
       <DependentUpon>201811291842009_InitialCreate.cs</DependentUpon>

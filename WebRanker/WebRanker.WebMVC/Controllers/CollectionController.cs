@@ -19,12 +19,14 @@ namespace WebRanker.WebMVC.Controllers
             return new CollectionService(userID);
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             var model = GetCollectionService().GetCollection();
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -52,6 +54,7 @@ namespace WebRanker.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Details(int id)
         {
             var service = GetCollectionService();
@@ -60,19 +63,37 @@ namespace WebRanker.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Rank(int id)
         {
             var service = GetCollectionService();
-            var model = service.GetMatchups(id);
 
-            return View(model[0]);
+            if (!TempData.Keys.Contains("matchuplist"))
+            {
+                TempData["matchuplist"] = service.GetMatchups(id);
+            }
+
+            return View(TempData["matchuplist"]);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Rank(Matchup model)
+        public ActionResult Rank(ViewPostTransfer vpt)
         {
-            return View(model);
+            var service = GetCollectionService();
+            List<Matchup> matchup_list = vpt.MatchupList;
+            Item item = vpt.ChosenItem;
+
+            TempData["matchuplist"] = matchup_list.Skip(1);
+            service.IncreaseItemRankingPoints(item.ItemID);
+
+            return View(item.CollectionID);
+        }
+
+        [HttpGet]
+        public PartialViewResult Help()
+        {
+            return PartialView();
         }
     }
 }

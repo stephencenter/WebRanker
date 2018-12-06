@@ -1,13 +1,13 @@
 ﻿<html>
     <head>
-        @using WebRanker.Data
+        @using WebRanker.Models
         @using WebRanker.Services
         @{ViewBag.Title = "Rank";}
         <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
     </head>
 
     <body>
-        @model WebRanker.Data.Matchup
+        @model List<Matchup>
         <h2>Rank your list!</h2>
         <h2 style="font-size: small">Choose your favorite of these two</h2>
 
@@ -15,18 +15,18 @@
         {
             @Html.AntiForgeryToken()
 
-            <div id="rankradio">
-                <input type="radio" id="choice1" name="choice1" value=@Model.FirstItem.ItemID>
-                <label for="choice1">@Model.FirstItem.ItemName</label>
-                <br />
-                <input type="radio" id="choice2" name="choice2" value=@Model.SecondItem.ItemID>
-                <label for="choice2">@Model.SecondItem.ItemName</label>
+        <div id="rankradio">
+            <input type="radio" id="choice1" name="choice" value=@{new ViewPostTransfer(Model, Model[0].FirstItem);}>
+            <label for="choice1">@Model[0].FirstItem.ItemName</label>
+            <br />
+            <input type="radio" id="choice2" name="choice" value=@{new ViewPostTransfer(Model, Model[0].SecondItem);}>
+            <label for="choice2">@Model[0].SecondItem.ItemName</label>
 
-                <div>
-                    <button class="btn btn-success" type="submit">Submit</button>
-                    @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
-                </div>
+            <div>
+                <button class="btn btn-success" type="submit">Submit</button>
+                @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
             </div>
+        </div>
         }
     </body>
 </html>

@@ -7,7 +7,9 @@
     <body>
         @model IEnumerable<WebRanker.Models.ViewModel>
 
-        <h2 style="font-weight: bold;">Your Lists @Html.ActionLink("Create a new list", "Create", null, new { @class = "btn btn-success btn-large" })</h2>
+        <h2 style="font-weight: bold;">Your Lists</h2>
+        @Html.ActionLink("Create a new list", "Create", null, new { @class = "btn btn-success btn-large" })
+        @Html.ActionLink("What is this website?", "Help", null, new { @class = "btn btn-info btn-large" })<br />
 
         @if (TempData.ContainsKey("SaveResult"))
         {
@@ -19,10 +21,10 @@
 
         <table class="table">
             <tr>
-                <th style="font-size: large">
+                <th>
                     @Html.DisplayNameFor(model => model.Title)
                 </th>
-                <th style="font-size: large">
+                <th>
                     @Html.DisplayNameFor(model => model.CreatedUTC)
                 </th>
                 <th>
