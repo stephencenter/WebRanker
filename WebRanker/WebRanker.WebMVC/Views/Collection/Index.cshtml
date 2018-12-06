@@ -1,48 +1,54 @@
-﻿@model IEnumerable<WebRanker.Models.ViewModel>
+﻿<html>
+    <head>
+        @{ViewBag.Title = "Index";}
+        <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
+    </head>
 
-@{ViewBag.Title = "Index";}
+    <body>
+        @model IEnumerable<WebRanker.Models.ViewModel>
 
-<h2>Your Lists</h2>
+        <h2 style="font-weight: bold;">Your Lists @Html.ActionLink("Create a new list", "Create", null, new { @class = "btn btn-success btn-large" })</h2>
 
-<p>
-    @Html.ActionLink("Create New List", "Create")
-</p>
+        @if (TempData.ContainsKey("SaveResult"))
+        {
+            <div class="alert alert-success fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                @TempData["SaveResult"]
+            </div>
+        }
 
-@if(TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-        @TempData["SaveResult"]
-    </div>
-}
+        <table class="table">
+            <tr>
+                <th style="font-size: large">
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th style="font-size: large">
+                    @Html.DisplayNameFor(model => model.CreatedUTC)
+                </th>
+                <th>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUTC)
-        </th>
-        <th></th>
-    </tr>
+                </th>
+            </tr>
 
-    @foreach (var item in Model) {
-    <tr>
-        <td style="font-weight: bold;">
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-weight: bold;">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUTC)
-        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedUTC)
+                    </td>
 
-        <td>
-            @Html.ActionLink("Rank List", "Rank", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-            @Html.ActionLink("View Rankings", "Details", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-            @Html.ActionLink("Edit List", "Edit", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-            @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-        </td>
-    </tr>
-    }
-</table>
+                    <td>
+                        @Html.ActionLink("Rank", "Rank", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("View", "Details", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Edit", "Edit", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>

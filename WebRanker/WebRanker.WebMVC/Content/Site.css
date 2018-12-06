@@ -26,3 +26,14 @@ textarea {
 th, td {
     border-bottom: 1px solid #424242;
 }
+
+html body {
+    font-family: 'Raleway', sans-serif;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: 5em;
+    max-height: 15em;
+}

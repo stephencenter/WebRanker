@@ -1,50 +1,52 @@
-﻿@using WebRanker.Data
-@model WebRanker.Models.DetailsModel
+﻿<html>
+    <head>
+        @using WebRanker.Data
+        @{ViewBag.Title = "Details";}
+        <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
+    </head>
 
-@{ViewBag.Title = "Details";}
+    <body>
+        @model WebRanker.Models.DetailsModel
+        <div>
+            <h2>
+                Your rankings for @Html.DisplayFor(model => model.Title)
+            </h2>
 
+            <h2 style="font-size: small">
+                Created on @Html.DisplayFor(model => model.CreatedUTC)
+                <br />
 
-<div>
-    <h2>
-        Your rankings for @Html.DisplayFor(model => model.Title)
-    </h2>
+                @if (Model.ModifiedUTC.HasValue)
+                {
+                    <text>Last modified on</text> @Model.ModifiedUTC;
+                }
 
-    <h2 style="font-size: small">
-        Created on @Html.DisplayFor(model => model.CreatedUTC)
-    </h2>
+                else
+                {
+                    <text>Last modified on</text> @Model.CreatedUTC;
+                }
+            </h2>
+        </div>
 
-    <h2 style="font-size: small">
-        @if (Model.ModifiedUTC.HasValue)
-        {
-            <text>Last modified on</text> @Model.ModifiedUTC;
-        }
+        <dl class="dl-horizontal", style="white-space: normal">
+            @foreach (Item i in Model.TheList)
+            {
+                string ranking = (Model.TheList.FindIndex(e => e.ItemID == i.ItemID) + 1).ToString();
 
-        else
-        {
-            <text>Last modified on</text> @Model.CreatedUTC;
-        }
-    </h2>
-</div>
+                <dt style="width: 3em; text-align: center; font-weight: bold;">
+                    @ranking.
+                </dt>
 
-<div>
-    <dl class="dl-horizontal">
-        @foreach (Item i in Model.TheList)
-        {
-            string ranking = (Model.TheList.FindIndex(e => e.ItemID == i.ItemID) + 1).ToString();
+                <dd style="margin-left: 0px;">
+                    @i.ItemName
+                </dd>
+            }
+        </dl>
 
-            <dt>
-                @ranking.
-            </dt>
-
-            <dd>
-                @i.ItemName
-            </dd>
-        }
-    </dl>
-</div>
-
-<p>
-    @Html.ActionLink("Rank List", "Rank", "Collection", new { id = Model.ListID }, new { @class = "btn btn-primary btn-large" })
-    @Html.ActionLink("Edit List", "Edit", "Collection", new { id = Model.ListID }, new { @class = "btn btn-primary btn-large" })
-    @Html.ActionLink("Back to Index", "Index", "Collection", null, new { @class = "btn btn-primary btn-large" })
-</p>
+        <p>
+            @Html.ActionLink("Rank List", "Rank", "Collection", new { id = Model.ListID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Edit List", "Edit", "Collection", new { id = Model.ListID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Back to Index", "Index", "Collection", null, new { @class = "btn btn-primary btn-large" })
+        </p>
+    </body>
+</html>
