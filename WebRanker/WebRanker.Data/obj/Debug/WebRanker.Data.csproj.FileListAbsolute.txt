@@ -33,3 +33,6 @@ C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Dat
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.InitialCreate.resources
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.csproj.GenerateResource.cache
 C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.fixingstuff.resources
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.InitialCreate.resources
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.fixingstuff.resources
+D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.csproj.GenerateResource.cache
