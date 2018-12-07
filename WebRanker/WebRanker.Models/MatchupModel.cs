@@ -10,9 +10,8 @@ namespace WebRanker.Models
     public class MatchupModel
     {
         public int ListID { get; set; }
+        public int choice { get; set; }
         public Item FirstItem { get; set; }
         public Item SecondItem { get; set; }
-        public Item SelectedItem { get; set; }
-        public List<MatchupModel> MatchupList { get; set; }
     }
 }

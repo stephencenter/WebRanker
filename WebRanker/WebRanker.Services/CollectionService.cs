@@ -154,7 +154,7 @@ namespace WebRanker.Services
                 var matchup_list = new List<MatchupModel>();
 
                 foreach (IList<Item> i in combo_list) {
-                    matchup_list.Add(new MatchupModel{FirstItem = i[0], SecondItem = i[1], MatchupList = matchup_list});
+                    matchup_list.Add(new MatchupModel{FirstItem = i[0], SecondItem = i[1]});
                 }
 
                 return matchup_list;

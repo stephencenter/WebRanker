@@ -61,24 +61,18 @@ namespace WebRanker.WebMVC.Controllers
         public ActionResult Rank(int id)
         {
             var service = GetCollectionService();
-
-            if (!TempData.Keys.Contains("matchuplist"))
-            {
-                TempData["matchuplist"] = service.GetMatchups(id);
-            }
-
-            return View(TempData["matchuplist"]);
+            return View(service.GetMatchups(id));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Rank(MatchupModel matchup)
+        public ActionResult Rank(List<MatchupModel> matchups)
         {
             var service = GetCollectionService();
-            TempData["matchuplist"] = matchup.MatchupList.Skip(1);
-            service.IncreaseItemRankingPoints(matchup.SelectedItem.ItemID);
+            Session["matchuplist"] = matchups.Skip(1).ToList();
+            service.IncreaseItemRankingPoints(int.Parse(Request["[0].choice"]));
 
-            return View(matchup.SelectedItem.CollectionID);
+            return View(Session["matchuplist"]);
         }
 
         [HttpGet]
