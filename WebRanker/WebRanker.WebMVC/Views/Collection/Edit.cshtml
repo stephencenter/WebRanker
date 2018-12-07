@@ -6,14 +6,14 @@
 
     <body>
         @model WebRanker.Models.EditModel
-        <h2>Editing @Model.Title</h2>
+        <h1>Editing @Model.Title</h1>
+        <h2 style="font-size: small>Enter in the new or updated elements for your list</h2>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Enter in the new or updated elements for your list</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ListID)
 

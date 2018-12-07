@@ -1,1 +1,43 @@
-﻿This is working!
+﻿<html>
+    <head>
+        @{ViewBag.Title = "Edit";}
+        <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
+    </head>
+
+    <body>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h1>What is Ranker?</h1>
+
+            <p style="width: 50%">
+                Ranker is a program that helps rank lists of arbitrary size from your most favorite
+                to least favorite.
+            </p>
+
+            <p style="width: 50%">
+                This is an ASP.NET adaption of my python app called "Ranker". That can be found
+                <a href="https://bitbucket.org/TheFrozenMawile/ranker/src/master/">here.</a>
+            </p>
+
+            <p style="width: 50%">
+                The way this program works is simple and mathematically accurate. The user inputs
+                a creates a list of anything they want - colors, songs, movies. Next, they are
+                given "matchups" - every possible 2-item combination of items from the list.
+                The user chooses which of the two is their favorite. After all matchups have
+                been exhausted, their list is sorted according to the number of times each item
+                was voted for. This provides the user with a sort of "tier list", with every item
+                ranked from favorite to least favorite.
+            </p>
+
+            <p style="width: 50%">
+                It's recommended that this is done with fairly small lists, as the formala for
+                finding number of matchups (n choose 2) grows large very quickly as n gets larger.
+                A list with 6 items (6 choose 2) would have only 15 matchups, but a list with
+                20 items has 190 matchups. The exact formula for finding the number of matchups
+                is (n!)/2(n - 2)! where n is the number of items in the list.
+            </p>
+            @Html.ActionLink("Thanks!", "Index", "Collection", null, new { @class = "btn btn-success btn-large" })
+        }
+    </body>
+</html>

@@ -85,9 +85,9 @@ namespace WebRanker.WebMVC.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Help()
+        public ActionResult Help()
         {
-            return PartialView();
+            return View();
         }
 
         [HttpGet]
