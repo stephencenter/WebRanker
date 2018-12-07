@@ -42,16 +42,10 @@ namespace WebRanker.WebMVC.Controllers
             }
 
             var service = GetCollectionService();
+            service.CreateCollection(model);
+            TempData["SaveResult"] = "List created!";
 
-            if (service.CreateCollection(model))
-            {
-                TempData["SaveResult"] = "List created!";
-                return RedirectToAction("Index");
-            }
-
-            ModelState.AddModelError("", "Failed to create list!");
-
-            return View(model);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -114,6 +108,40 @@ namespace WebRanker.WebMVC.Controllers
             var service = GetCollectionService();
             service.DeleteList(id);
             TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = GetCollectionService();
+            var collection = service.GetCollectionByID(id);
+
+            var model = new EditModel
+            {
+                ListID = collection.ListID,
+                Title = collection.Title,
+                TheList = service.ConvertListToString(service.GetItemsByListID(id))
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ListID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = GetCollectionService();
+            service.UpdateNote(model);
+            TempData["SaveResult"] = "Your note was updated.";
 
             return RedirectToAction("Index");
         }

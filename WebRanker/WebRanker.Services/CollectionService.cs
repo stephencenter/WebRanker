@@ -18,53 +18,45 @@ namespace WebRanker.Services
             _userID = userID;
         }
 
-        public bool CreateCollection(CreateModel model)
-        {
-            var collection = new Collection()
-            {
-                OwnerID = _userID,
-                Title = model.Title,
-                CreatedUTC = DateTimeOffset.Now
-            };
-
-            List<Item> items = new List<Item>();
-
-            foreach (string item in model.TheList.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
-            {
-                var new_item = new Item()
-                {
-                    OwnerID = _userID,
-                    ItemName = item,
-                    CollectionID = 0,
-                    RankingPoints = 0
-                };
-
-                items.Add(new_item);
-            }
-
-            return SaveDataToDatabase(collection, items);
-        }
-
-        public bool SaveDataToDatabase(Collection collection, List<Item> items)
+        public void CreateCollection(CreateModel model)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var collection = new Collection()
+                {
+                    OwnerID = _userID,
+                    Title = model.Title,
+                    CreatedUTC = DateTimeOffset.Now
+                };
+
                 ctx.Collections.Add(collection);
                 ctx.SaveChanges();
+                SaveItemsToDatabase(ConvertStringToList(model.TheList), collection.Title, collection.CreatedUTC);
+            }
 
-                // Get the ListID of the collection we just added
-                var id = ctx .Collections .Single(
-                    c => c.OwnerID == collection.OwnerID && 
-                    c.CreatedUTC == collection.CreatedUTC && 
-                    c.Title == collection.Title).ListID;
+            return;
+        }
 
-                foreach (Item x in items)
+        public void SaveItemsToDatabase(List<Item> new_items, string Title, DateTimeOffset CreatedUTC)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var id = ctx.Collections.Single(c => c.OwnerID == _userID && c.CreatedUTC == CreatedUTC && c.Title == Title).ListID;
+                var existing_items = ctx.ListOfItems.Where(i => i.OwnerID == _userID && i.CollectionID == id); 
+
+                foreach (Item e in existing_items)
                 {
-                    x.CollectionID = id;
-                    ctx.ListOfItems.Add(x);
+                    ctx.ListOfItems.Remove(e);
                 }
 
-                return ctx.SaveChanges() == items.Count;
+                foreach (Item i in new_items)
+                {
+                    i.CollectionID = id;
+                    ctx.ListOfItems.Add(i);
+                }
+
+                ctx.SaveChanges();
+                return;
             }
         }
 
@@ -92,8 +84,8 @@ namespace WebRanker.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var found_collection = ctx.Collections.Single(e => e.ListID == ListID && e.OwnerID == _userID);
-                List<Item> found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
-                found_list = found_list.OrderByDescending(e => e.RankingPoints).ToList();
+                var items = GetItemsByListID(ListID);
+                items = items.OrderByDescending(e => e.RankingPoints).ToList();
 
                 return new DetailsModel
                 {
@@ -101,17 +93,57 @@ namespace WebRanker.Services
                     Title = found_collection.Title,
                     CreatedUTC = found_collection.CreatedUTC,
                     ModifiedUTC = found_collection.ModifiedUTC,
-                    TheList = found_list
+                    TheList = items
                 };
             }
+        }
+
+        public List<Item> GetItemsByListID(int ListID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
+            }
+        }
+
+        public string ConvertListToString(List<Item> the_list)
+        {
+            List<string> string_list = new List<string>();
+
+            foreach (Item item in the_list)
+            {
+                string_list.Add(item.ItemName);
+            }
+
+            return String.Join("\n", string_list);
+        }
+
+        public List<Item> ConvertStringToList(string the_string)
+        {
+            List<Item> items = new List<Item>();
+
+            foreach (string item in the_string.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
+            {
+                var new_item = new Item()
+                {
+                    OwnerID = _userID,
+                    ItemName = item,
+                    CollectionID = 0,
+                    RankingPoints = 0
+                };
+
+                items.Add(new_item);
+            }
+
+            return items;
         }
 
         public List<Matchup> GetMatchups(int ListID)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var found_list = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID).ToList();
-                var combo_list = new Combinations<Item>(found_list.OrderByDescending(e => e.RankingPoints).ToList(), 2);
+                var items = GetItemsByListID(ListID);
+                var combo_list = new Combinations<Item>(items.OrderByDescending(e => e.RankingPoints).ToList(), 2);
                 var matchup_list = new List<Matchup>();
 
                 foreach (IList<Item> i in combo_list) {
@@ -126,9 +158,9 @@ namespace WebRanker.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var found_items = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID);
-                
-                foreach (Item i in found_items)
+                var items = GetItemsByListID(ListID);
+
+                foreach (Item i in items)
                 {
                     i.RankingPoints = 0;
                 }
@@ -152,7 +184,7 @@ namespace WebRanker.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var collection = ctx.Collections.Single(e => e.ListID == ListID && e.OwnerID == _userID);
-                var items = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID);
+                var items = GetItemsByListID(ListID);
 
                 ctx.Collections.Remove(collection);
 
@@ -162,6 +194,21 @@ namespace WebRanker.Services
                 }
 
                 return ctx.SaveChanges() == items.Count() + 1;
+            }
+        }
+
+        public void UpdateNote(EditModel model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var collection = ctx.Collections.Single(e => e.ListID == model.ListID && e.OwnerID == _userID);
+
+                collection.Title = model.Title;
+                collection.ModifiedUTC = DateTimeOffset.UtcNow;
+                SaveItemsToDatabase(ConvertStringToList(model.TheList), collection.Title, collection.CreatedUTC);
+                ctx.SaveChanges();
+
+                return;
             }
         }
     }
