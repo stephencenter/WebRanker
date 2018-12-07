@@ -146,5 +146,23 @@ namespace WebRanker.Services
                 ctx.SaveChanges();
             }
         }
+
+        public bool DeleteList(int ListID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var collection = ctx.Collections.Single(e => e.ListID == ListID && e.OwnerID == _userID);
+                var items = ctx.ListOfItems.Where(e => e.CollectionID == ListID && e.OwnerID == _userID);
+
+                ctx.Collections.Remove(collection);
+
+                foreach (Item item in items)
+                {
+                    ctx.ListOfItems.Remove(item);
+                }
+
+                return ctx.SaveChanges() == items.Count() + 1;
+            }
+        }
     }
 }

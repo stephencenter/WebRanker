@@ -28,7 +28,7 @@
             </h2>
         </div>
 
-        <dl class="dl-horizontal", style="white-space: normal">
+        <dl class="dl-horizontal">
             @foreach (Item i in Model.TheList)
             {
                 string ranking = (Model.TheList.FindIndex(e => e.ItemID == i.ItemID) + 1).ToString();

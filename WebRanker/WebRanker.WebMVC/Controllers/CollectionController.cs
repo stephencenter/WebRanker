@@ -95,5 +95,27 @@ namespace WebRanker.WebMVC.Controllers
         {
             return PartialView();
         }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = GetCollectionService();
+            var model = service.GetCollectionByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = GetCollectionService();
+            service.DeleteList(id);
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
     }
 }
