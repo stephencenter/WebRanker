@@ -19,14 +19,20 @@
 
                 <div class="form-group">
                     <div class="form-group">
-                        <text class ="control-label col-md-2" style ="width: 7em">Your list</text>
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 7em" })
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <text class="control-label col-md-2" style="width: 7em">Your list</text>
                         @Html.TextAreaFor(model => model.TheList, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.TheList, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success btn-large" style="margin-left: 7em" />
-                        @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large"})
+                        <input type="submit" value="Update" class="btn btn-success btn-large" style="margin-left: 7em" />
+                        @Html.ActionLink("Cancel", "Index", "Collection", null, new { @class = "btn btn-danger btn-large" })
                     </div>
                 </div>
             </div>

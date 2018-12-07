@@ -41,7 +41,7 @@ namespace WebRanker.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var id = ctx.Collections.Single(c => c.OwnerID == _userID && c.CreatedUTC == CreatedUTC && c.Title == Title).ListID;
+                var id = ctx.Collections.Single(c => c.OwnerID == _userID && c.CreatedUTC == CreatedUTC).ListID;
                 var existing_items = ctx.ListOfItems.Where(i => i.OwnerID == _userID && i.CollectionID == id); 
 
                 foreach (Item e in existing_items)
