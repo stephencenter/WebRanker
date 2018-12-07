@@ -145,16 +145,16 @@ namespace WebRanker.Services
             return items;
         }
 
-        public List<Matchup> GetMatchups(int ListID)
+        public List<MatchupModel> GetMatchups(int ListID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var items = GetItemsByListID(ListID);
                 var combo_list = new Combinations<Item>(items.OrderByDescending(e => e.RankingPoints).ToList(), 2);
-                var matchup_list = new List<Matchup>();
+                var matchup_list = new List<MatchupModel>();
 
                 foreach (IList<Item> i in combo_list) {
-                    matchup_list.Add(new Matchup{FirstItem = i[0], SecondItem = i[1]});
+                    matchup_list.Add(new MatchupModel{FirstItem = i[0], SecondItem = i[1], MatchupList = matchup_list});
                 }
 
                 return matchup_list;

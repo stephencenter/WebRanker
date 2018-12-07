@@ -57,10 +57,9 @@
     <Compile Include="CreateModel.cs" />
     <Compile Include="DetailsModel.cs" />
     <Compile Include="EditModel.cs" />
-    <Compile Include="Matchup.cs" />
+    <Compile Include="MatchupModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel.cs" />
-    <Compile Include="ViewPostTransfer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
