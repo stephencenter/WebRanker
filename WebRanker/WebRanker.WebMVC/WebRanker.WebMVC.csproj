@@ -248,6 +248,7 @@
     <Content Include="Views\Collection\Rank.cshtml" />
     <Content Include="Views\Collection\Help.cshtml" />
     <Content Include="Views\Collection\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
