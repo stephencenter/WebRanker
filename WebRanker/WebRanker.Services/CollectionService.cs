@@ -125,6 +125,12 @@ namespace WebRanker.Services
 
             foreach (string item in the_string.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
             {
+
+                if (string.IsNullOrWhiteSpace(item))
+                {
+                    continue;
+                }
+
                 var new_item = new Item()
                 {
                     OwnerID = _userID,
