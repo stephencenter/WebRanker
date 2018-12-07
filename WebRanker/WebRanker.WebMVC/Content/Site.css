@@ -25,9 +25,10 @@ textarea {
 
 th, td {
     border-bottom: 1px solid #424242;
+    border-top: none !important;
 }
 
-html body {
+body {
     font-family: 'Raleway', sans-serif;
 }
 
