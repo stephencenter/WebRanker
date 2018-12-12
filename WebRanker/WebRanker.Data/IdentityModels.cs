@@ -34,6 +34,7 @@ namespace WebRanker.Models
 
         public DbSet<Collection> Collections { get; set; }
         public DbSet<Item> ListOfItems { get; set; }
+        public DbSet<Matchup> ListOfMatchups { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

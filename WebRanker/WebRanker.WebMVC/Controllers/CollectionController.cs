@@ -66,13 +66,13 @@ namespace WebRanker.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Rank(List<MatchupModel> matchups)
+        public ActionResult RankPost(int id)
         {
             var service = GetCollectionService();
-            Session["matchuplist"] = matchups.Skip(1).ToList();
             service.IncreaseItemRankingPoints(int.Parse(Request["[0].choice"]));
+            matchups = matchups.Skip(1).ToList();
 
-            return View(Session["matchuplist"]);
+            return View(matchups);
         }
 
         [HttpGet]

@@ -7,7 +7,7 @@ using WebRanker.Data;
 
 namespace WebRanker.Models
 {
-    public class MatchupModel
+    public class Matchup
     {
         public int ListID { get; set; }
         public int choice { get; set; }
