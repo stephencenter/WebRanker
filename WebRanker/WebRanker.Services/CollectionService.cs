@@ -159,7 +159,15 @@ namespace WebRanker.Services
                 var combo_list = new Combinations<Item>(items.OrderByDescending(e => e.RankingPoints).ToList(), 2);
 
                 foreach (IList<Item> i in combo_list) {
-                    ctx.ListOfMatchups.Add(new Matchup{FirstItemID = i[0].ItemID, SecondItemID = i[1].ItemID, CollectionID = id, OwnerID = _userID});
+                    var new_matchup = new Matchup
+                    {
+                        FirstItemID = i[0].ItemID,
+                        SecondItemID = i[1].ItemID,
+                        CollectionID = id,
+                        OwnerID = _userID
+                    };
+
+                    ctx.ListOfMatchups.Add(new_matchup);
                 }
 
                 ctx.SaveChanges();
@@ -210,7 +218,7 @@ namespace WebRanker.Services
             }
         }
 
-        public void UpdateNote(EditModel model)
+        public void UpdateCollection(EditModel model)
         {
             using (var ctx = new ApplicationDbContext())
             {
