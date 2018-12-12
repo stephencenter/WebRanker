@@ -2,31 +2,14 @@
     <head>
         @using WebRanker.Data
         @{ViewBag.Title = "Details";}
-        <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     </head>
 
     <body>
         @model WebRanker.Models.DetailsModel
-        <div>
-            <h1>
-                Your rankings for @Html.DisplayFor(model => model.Title)
-            </h1>
-
-            <h2 style="font-size: small">
-                Created on @Html.DisplayFor(model => model.CreatedUTC)
-                <br />
-
-                @if (Model.ModifiedUTC.HasValue)
-                {
-                    <text>Last modified on</text> @Model.ModifiedUTC;
-                }
-
-                else
-                {
-                    <text>Last modified on</text> @Model.CreatedUTC;
-                }
-            </h2>
-        </div>
+        <h1>
+            Your rankings for @Html.DisplayFor(model => model.Title)
+        </h1>
 
         <dl class="dl-horizontal">
             @foreach (Item i in Model.TheList)
@@ -42,6 +25,21 @@
                 </dd>
             }
         </dl>
+
+        <h2 style="font-size: small">
+            Created on @Html.DisplayFor(model => model.CreatedUTC)
+            <br />
+
+            @if (Model.ModifiedUTC.HasValue)
+            {
+                <text>Last modified on</text> @Model.ModifiedUTC;
+            }
+
+            else
+            {
+                <text>Last modified on</text> @Model.CreatedUTC;
+            }
+        </h2>
 
         <p>
             @Html.ActionLink("Rank List", "Rank", "Collection", new { id = Model.CollectionID }, new { @class = "btn btn-primary btn-large" })

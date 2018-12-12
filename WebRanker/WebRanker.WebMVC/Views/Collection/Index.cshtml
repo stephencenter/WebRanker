@@ -1,7 +1,7 @@
 ﻿<html>
     <head>
         @{ViewBag.Title = "Index";}
-        <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     </head>
 
     <body>
@@ -23,16 +23,16 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Title)
+                    Title
                 </th>
                 <th>
                     Number of Items
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatedUTC)
+                    Created On
                 </th>
                 <th>
-
+                    Options
                 </th>
             </tr>
 
@@ -42,7 +42,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
-
                     <td>
                         @Html.DisplayFor(modelItem => item.Count)
                     </td>

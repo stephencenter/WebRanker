@@ -59,7 +59,7 @@ namespace WebRanker.Services
             }
         }
 
-        public IEnumerable<ViewModel> GetCollection()
+        public IEnumerable<ViewModel> GetViewModelList()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -78,7 +78,7 @@ namespace WebRanker.Services
             }
         }
 
-        public DetailsModel GetCollectionByID(int CollectionID)
+        public DetailsModel GetDetailsModel(int CollectionID)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -91,7 +91,7 @@ namespace WebRanker.Services
                     CollectionID = found_collection.CollectionID,
                     Title = found_collection.Title,
                     CreatedUTC = found_collection.CreatedUTC,
-                    ModifiedUTC = found_collection.ModifiedUTC,
+                    ModifiedUTC = found_collection.ModifiedUTC == null ? found_collection.CreatedUTC : found_collection.ModifiedUTC,
                     TheList = items
                 };
             }

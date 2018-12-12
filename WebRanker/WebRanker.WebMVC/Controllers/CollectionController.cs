@@ -18,7 +18,7 @@ namespace WebRanker.WebMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = GetCollectionService().GetCollection();
+            var model = GetCollectionService().GetViewModelList();
             return View(model);
         }
 
@@ -39,7 +39,7 @@ namespace WebRanker.WebMVC.Controllers
 
             var service = GetCollectionService();
             service.CreateCollection(model);
-            TempData["SaveResult"] = "List created!";
+            TempData["SaveResult"] = "Your list has been created!";
 
             return RedirectToAction("Index");
         }
@@ -48,7 +48,7 @@ namespace WebRanker.WebMVC.Controllers
         public ActionResult Details(int id)
         {
             var service = GetCollectionService();
-            var model = service.GetCollectionByID(id);
+            var model = service.GetDetailsModel(id);
 
             return View(model);
         }
@@ -99,7 +99,7 @@ namespace WebRanker.WebMVC.Controllers
         public ActionResult Delete(int id)
         {
             var service = GetCollectionService();
-            var model = service.GetCollectionByID(id);
+            var model = service.GetDetailsModel(id);
 
             return View(model);
         }
@@ -111,7 +111,7 @@ namespace WebRanker.WebMVC.Controllers
         {
             var service = GetCollectionService();
             service.DeleteList(id);
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your list was deleted!";
 
             return RedirectToAction("Index");
         }
@@ -119,7 +119,7 @@ namespace WebRanker.WebMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = GetCollectionService();
-            var collection = service.GetCollectionByID(id);
+            var collection = service.GetDetailsModel(id);
 
             var model = new EditModel
             {
@@ -145,7 +145,7 @@ namespace WebRanker.WebMVC.Controllers
 
             var service = GetCollectionService();
             service.UpdateCollection(model);
-            TempData["SaveResult"] = "Your note was updated.";
+            TempData["SaveResult"] = "Your list was updated!";
 
             return RedirectToAction("Index");
         }
