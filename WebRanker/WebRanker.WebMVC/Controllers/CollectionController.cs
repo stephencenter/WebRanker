@@ -145,7 +145,6 @@ namespace WebRanker.WebMVC.Controllers
 
             var service = GetCollectionService();
             service.UpdateCollection(model);
-            service.ResetRankingPoints(id);
             TempData["SaveResult"] = "Your note was updated.";
 
             return RedirectToAction("Index");

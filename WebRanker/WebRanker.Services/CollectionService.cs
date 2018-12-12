@@ -178,7 +178,7 @@ namespace WebRanker.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var items = GetItemsByCollectionID(CollectionID);
+                var items = ctx.ListOfItems.Where(e => e.CollectionID == CollectionID && e.OwnerID == _userID);
 
                 foreach (Item i in items)
                 {
