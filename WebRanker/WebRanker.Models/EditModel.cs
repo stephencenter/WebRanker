@@ -9,7 +9,7 @@ namespace WebRanker.Models
 {
     public class EditModel
     {
-        public int ListID { get; set; }
+        public int CollectionID { get; set; }
         public string Title { get; set; }
         public string TheList { get; set; }
     }

@@ -51,10 +51,10 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Rank", "Rank", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-                        @Html.ActionLink("View", "Details", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-                        @Html.ActionLink("Edit", "Edit", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
-                        @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.ListID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Rank", "Rank", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("View", "Details", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Edit", "Edit", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
                     </td>
                 </tr>
             }

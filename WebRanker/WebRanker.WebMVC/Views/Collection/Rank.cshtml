@@ -1,13 +1,11 @@
 ﻿<html>
     <head>
-        @using WebRanker.Models
-        @using WebRanker.Services
         @{ViewBag.Title = "Rank";}
         <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Rubik" rel="stylesheet">
     </head>
 
     <body>
-        @model List<MatchupModel>
+        @model WebRanker.Models.MatchupModel
         <h2>Rank your list!</h2>
         <h2 style="font-size: small">Choose your favorite of these two</h2>
 
@@ -16,11 +14,11 @@
             @Html.AntiForgeryToken()
 
             <div id="rankradio">
-                @Html.RadioButton("[0].choice", Model[0].FirstItem.ItemID, true)
-                <label for="choice1">@Model[0].FirstItem.ItemName</label>
+                @Html.RadioButton("[0].choice", Model.FirstItemID, true)
+                <label for="choice1">@Model.FirstItemName</label>
                 <br />
-                @Html.RadioButton("[0].choice", Model[0].SecondItem.ItemID, false)
-                <label for="choice2">@Model[0].SecondItem.ItemName</label>
+                @Html.RadioButton("[0].choice", Model.SecondItemID, false)
+                <label for="choice2">@Model.SecondItemName</label>
 
                 <div>
                     <button class="btn btn-success btn-large" type="submit">Next</button>

@@ -10,7 +10,7 @@ namespace WebRanker.Models
 {
     public class DetailsModel
     {
-        public int ListID { get; set; }
+        public int CollectionID { get; set; }
         public string Title { get; set; }
         public List<Item> TheList { get; set; }
 
@@ -19,6 +19,6 @@ namespace WebRanker.Models
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUTC { get; set; }
-        public override string ToString() => $"[{ListID} {Title}";
+        public override string ToString() => $"[{CollectionID} {Title}";
     }
 }

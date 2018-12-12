@@ -1,17 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebRanker.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebRanker.Models
 {
     public class Matchup
     {
-        public int ListID { get; set; }
+        [Key]
+        public int MatchupID { get; set; }
+
+        [Required]
+        public int CollectionID { get; set; }
+
+        [Required]
+        public Guid OwnerID { get; set; }
+
+        [Required]
+        public int FirstItemID { get; set; }
+
+        [Required]
+        public int SecondItemID { get; set; }
+
         public int choice { get; set; }
-        public Item FirstItem { get; set; }
-        public Item SecondItem { get; set; }
     }
 }

@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using WebRanker.Models;
 using WebRanker.Services;
-using WebRanker.Data;
 
 namespace WebRanker.WebMVC.Controllers
 {
@@ -58,21 +54,38 @@ namespace WebRanker.WebMVC.Controllers
         }
 
         [HttpGet]
+        [ActionName("Rank")]
         public ActionResult Rank(int id)
         {
             var service = GetCollectionService();
-            return View(service.GetMatchups(id));
+            service.DeleteAllMatchups(id);
+            service.GetMatchups(id);
+            service.ResetRankingPoints(id);
+            var model = service.GetCurrentMatchup(id);
+
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ActionName("Rank")]
         public ActionResult RankPost(int id)
         {
             var service = GetCollectionService();
+            service.DeleteMatchup(service.GetCurrentMatchup(id).MatchupID);
             service.IncreaseItemRankingPoints(int.Parse(Request["[0].choice"]));
-            matchups = matchups.Skip(1).ToList();
 
-            return View(matchups);
+            if (service.AreThereMoreMatchups(id))
+            {
+                var model = service.GetCurrentMatchup(id);
+                return View(model);
+            }
+
+            else
+            {
+                TempData["SaveResult"] = "Your list has been ranked!";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpGet]
@@ -110,9 +123,9 @@ namespace WebRanker.WebMVC.Controllers
 
             var model = new EditModel
             {
-                ListID = collection.ListID,
+                CollectionID = collection.CollectionID,
                 Title = collection.Title,
-                TheList = service.ConvertListToString(service.GetItemsByListID(id))
+                TheList = service.ConvertListToString(service.GetItemsByCollectionID(id))
             };
 
             return View(model);
@@ -124,7 +137,7 @@ namespace WebRanker.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.ListID != id)
+            if (model.CollectionID != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -132,6 +145,7 @@ namespace WebRanker.WebMVC.Controllers
 
             var service = GetCollectionService();
             service.UpdateNote(model);
+            service.ResetRankingPoints(id);
             TempData["SaveResult"] = "Your note was updated.";
 
             return RedirectToAction("Index");

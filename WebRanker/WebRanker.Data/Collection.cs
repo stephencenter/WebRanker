@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebRanker.Data
 {
     public class Collection
     {
         [Key]
-        public int ListID { get; set; }
+        public int CollectionID { get; set; }
 
         [Required]
         public Guid OwnerID { get; set; }
