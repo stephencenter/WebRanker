@@ -57,7 +57,7 @@
     <Compile Include="CreateModel.cs" />
     <Compile Include="DetailsModel.cs" />
     <Compile Include="EditModel.cs" />
-    <Compile Include="MatchupModel.cs" />
+    <Compile Include="RankModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel.cs" />
   </ItemGroup>

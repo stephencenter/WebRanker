@@ -1,6 +1,6 @@
 ﻿namespace WebRanker.Models
 {
-    public class MatchupModel
+    public class RankModel
     {
         public int MatchupID { get; set; }
         public int CollectionID { get; set; }

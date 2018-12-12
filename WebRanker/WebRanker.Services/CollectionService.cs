@@ -225,13 +225,13 @@ namespace WebRanker.Services
             }
         }
 
-        public MatchupModel GetCurrentMatchup(int CollectionID)
+        public RankModel GetCurrentMatchup(int CollectionID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var found_matchup = ctx.ListOfMatchups.First(x => x.CollectionID == CollectionID && x.OwnerID == _userID);
 
-                return new MatchupModel
+                return new RankModel
                 {
                     CollectionID = found_matchup.CollectionID,
                     MatchupID = found_matchup.MatchupID,
