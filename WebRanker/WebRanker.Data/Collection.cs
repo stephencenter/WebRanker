@@ -17,6 +17,6 @@ namespace WebRanker.Data
         [Required]
         public DateTimeOffset CreatedUTC { get; set; }
 
-        public DateTimeOffset? ModifiedUTC { get; set; }
+        public DateTimeOffset ModifiedUTC { get; set; }
     }
 }

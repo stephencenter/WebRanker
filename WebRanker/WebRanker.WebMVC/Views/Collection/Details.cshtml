@@ -27,24 +27,15 @@
         </dl>
 
         <h2 style="font-size: small">
-            Created on @Html.DisplayFor(model => model.CreatedUTC)
-            <br />
-
-            @if (Model.ModifiedUTC.HasValue)
-            {
-                <text>Last modified on</text> @Model.ModifiedUTC;
-            }
-
-            else
-            {
-                <text>Last modified on</text> @Model.CreatedUTC;
-            }
+            Created on @Html.DisplayFor(model => model.CreatedUTC) <br />
+            Last modified/ranked on @Html.DisplayFor(model => model.ModifiedUTC)
         </h2>
 
         <p>
+            @Html.ActionLink("Back to Lists", "Index", "Collection", null, new { @class = "btn btn-primary btn-large" })
             @Html.ActionLink("Rank List", "Rank", "Collection", new { id = Model.CollectionID }, new { @class = "btn btn-primary btn-large" })
             @Html.ActionLink("Edit List", "Edit", "Collection", new { id = Model.CollectionID }, new { @class = "btn btn-primary btn-large" })
-            @Html.ActionLink("Back to Index", "Index", "Collection", null, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Delete List", "Delete", "Collection", new { id = Model.CollectionID }, new { @class="btn btn-danger btn-large" })
         </p>
     </body>
 </html>

@@ -38,10 +38,25 @@ namespace WebRanker.WebMVC.Controllers
             }
 
             var service = GetCollectionService();
-            service.CreateCollection(model);
-            TempData["SaveResult"] = "Your list has been created!";
+            var result = service.CreateCollection(model);
 
-            return RedirectToAction("Index");
+            if (result == "too big")
+            {
+                TempData["SaveResult"] = "Your list can't have more than 150 items!";
+                return View(model);
+            }
+            
+            else if (result == "too small")
+            {
+
+                TempData["SaveResult"] = "Your list needs at least three items!";
+                return View(model);
+            }
+            else
+            {
+                TempData["SaveResult"] = "Your list has been created!";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpGet]
@@ -83,6 +98,7 @@ namespace WebRanker.WebMVC.Controllers
 
             else
             {
+                service.UpdateCollectionModifiedUTC(id);
                 TempData["SaveResult"] = "Your list has been ranked!";
                 return RedirectToAction("Index");
             }
@@ -144,10 +160,25 @@ namespace WebRanker.WebMVC.Controllers
             }
 
             var service = GetCollectionService();
-            service.UpdateCollection(model);
-            TempData["SaveResult"] = "Your list was updated!";
+            var result = service.UpdateCollection(model);
 
-            return RedirectToAction("Index");
+            if (result == "too big")
+            {
+                TempData["SaveResult"] = "Your list can't have more than 150 items!";
+                return View(model);
+            }
+
+            else if (result == "too small")
+            {
+
+                TempData["SaveResult"] = "Your list needs at least three items!";
+                return View(model);
+            }
+            else
+            {
+                TempData["SaveResult"] = "Your list was updated!"; ;
+                return RedirectToAction("Index");
+            }
         }
     }
 }

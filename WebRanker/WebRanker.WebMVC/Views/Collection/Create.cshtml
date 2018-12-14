@@ -8,6 +8,14 @@
         @model WebRanker.Models.CreateModel
         <h1>Create a new list</h1>
         <h2 style="font-size: small">Put each list item on it's own line by hitting enter</h2>
+        
+        @if (TempData.ContainsKey("SaveResult"))
+        {
+            <div class="alert alert-danger fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                @TempData["SaveResult"]
+            </div>
+        }
 
         @using (Html.BeginForm())
         {

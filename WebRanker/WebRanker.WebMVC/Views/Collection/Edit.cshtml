@@ -8,6 +8,14 @@
         @model WebRanker.Models.EditModel
         <h1>Editing @Model.Title</h1>
         <h2 style="font-size: small">Enter in the new or updated elements for your list</h2>
+        
+        @if (TempData.ContainsKey("SaveResult"))
+        {
+            <div class="alert alert-danger fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+                @TempData["SaveResult"]
+            </div>
+        }
 
         @using (Html.BeginForm())
         {

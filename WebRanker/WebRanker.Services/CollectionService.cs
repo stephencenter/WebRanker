@@ -17,23 +17,41 @@ namespace WebRanker.Services
             _userID = userID;
         }
 
-        public void CreateCollection(CreateModel model)
+        public string CreateCollection(CreateModel model)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var current_time = DateTimeOffset.Now;
+
                 var collection = new Collection()
                 {
                     OwnerID = _userID,
                     Title = model.Title,
-                    CreatedUTC = DateTimeOffset.Now
+                    CreatedUTC = current_time,
+                    ModifiedUTC = current_time
                 };
 
-                ctx.Collections.Add(collection);
-                ctx.SaveChanges();
-                SaveItemsToDatabase(ConvertStringToList(model.TheList), collection.Title, collection.CreatedUTC);
-            }
+                var converted_list = ConvertStringToList(model.TheList);
 
-            return;
+                if (converted_list.Count < 3)
+                {
+                    return "too small";
+                }
+
+                else if (converted_list.Count > 150)
+                {
+                    return "too big";
+                }
+
+                else
+                {
+                    ctx.Collections.Add(collection);
+                    ctx.SaveChanges();
+                    SaveItemsToDatabase(converted_list, collection.Title, collection.CreatedUTC);
+
+                    return "";
+                }
+            }
         }
 
         public void SaveItemsToDatabase(List<Item> new_items, string Title, DateTimeOffset CreatedUTC)
@@ -91,7 +109,7 @@ namespace WebRanker.Services
                     CollectionID = found_collection.CollectionID,
                     Title = found_collection.Title,
                     CreatedUTC = found_collection.CreatedUTC,
-                    ModifiedUTC = found_collection.ModifiedUTC == null ? found_collection.CreatedUTC : found_collection.ModifiedUTC,
+                    ModifiedUTC = found_collection.ModifiedUTC,
                     TheList = items
                 };
             }
@@ -218,7 +236,7 @@ namespace WebRanker.Services
             }
         }
 
-        public void UpdateCollection(EditModel model)
+        public string UpdateCollection(EditModel model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -226,10 +244,25 @@ namespace WebRanker.Services
 
                 collection.Title = model.Title;
                 collection.ModifiedUTC = DateTimeOffset.UtcNow;
-                SaveItemsToDatabase(ConvertStringToList(model.TheList), collection.Title, collection.CreatedUTC);
-                ctx.SaveChanges();
 
-                return;
+                var converted_list = ConvertStringToList(model.TheList);
+
+                if (converted_list.Count < 3)
+                {
+                    return "too small";
+                }
+
+                else if (converted_list.Count > 150)
+                {
+                    return "too big";
+                }
+
+                else { 
+                    SaveItemsToDatabase(ConvertStringToList(model.TheList), collection.Title, collection.CreatedUTC);
+                    ctx.SaveChanges();
+
+                    return "";
+                }
             }
         }
 
@@ -283,6 +316,16 @@ namespace WebRanker.Services
                 var matchup_list = ctx.ListOfMatchups.Where(x => x.CollectionID == CollectionID && x.OwnerID == _userID);
 
                 return !(matchup_list.Count() == 0);
+            }
+        }
+
+        public void UpdateCollectionModifiedUTC(int CollectionID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var collection = ctx.Collections.Single(e => e.CollectionID == CollectionID && e.OwnerID == _userID);
+                collection.ModifiedUTC = DateTimeOffset.Now;
+                ctx.SaveChanges();
             }
         }
     }

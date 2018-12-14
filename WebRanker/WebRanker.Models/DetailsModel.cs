@@ -15,6 +15,6 @@ namespace WebRanker.Models
         public List<Item> TheList { get; set; }
         
         public DateTimeOffset CreatedUTC { get; set; }
-        public DateTimeOffset? ModifiedUTC { get; set; }
+        public DateTimeOffset ModifiedUTC { get; set; }
     }
 }
