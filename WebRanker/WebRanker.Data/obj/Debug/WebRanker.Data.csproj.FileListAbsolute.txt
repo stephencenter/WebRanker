@@ -33,3 +33,6 @@ C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Dat
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.InitialCreate.resources
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.Migrations.fixingstuff.resources
 D:\Documents\Eleven Fifty\WebRanker\WebRanker\WebRanker.Data\obj\Debug\WebRanker.Data.csproj.GenerateResource.cache
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\steph\Documents\Eleven Fifty Projects\WebRanker\WebRanker\WebRanker.Data\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll

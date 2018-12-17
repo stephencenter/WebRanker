@@ -10,3 +10,12 @@
 /WebRanker/WebRanker.Services/obj/Debug/
 /WebRanker/WebRanker.Models/obj/Debug/
 /WebRanker/WebRanker.Services/bin/Debug/
+/WebRanker/WebRanker.Data/bin/
+/WebRanker/WebRanker.Contracts/bin/
+/WebRanker/WebRanker.Contracts/obj/
+/WebRanker/WebRanker.Models/bin/
+/WebRanker/WebRanker.Services/bin/
+/WebRanker/WebRanker.Services/obj/
+/WebRanker/WebRanker.Models/obj/
+/WebRanker/WebRanker.Tests/
+/WebRanker/WebRanker.WebMVC/obj/
