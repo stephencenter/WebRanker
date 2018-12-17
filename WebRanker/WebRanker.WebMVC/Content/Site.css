@@ -1,6 +1,6 @@
-﻿html, body {
-    margin: 0px;
-    padding: 0px;
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -40,6 +40,7 @@ h1, h2, h3 {
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;
 }
+
 textarea {
     resize: vertical;
     width: 100%;
