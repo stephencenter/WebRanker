@@ -6,9 +6,9 @@
 
     <body>
         @model WebRanker.Models.EditModel
-        <h1>Editing @Model.Title</h1>
-        <h2 style="font-size: small">Enter in the new or updated elements for your list</h2>
-        <h2 style="font-size: small">Note: Clicking Update will reset your rankings for this list!</h2>
+        <h3>Editing @Model.Title</h3>
+        <h3 style="font-size: small">Enter in the new or updated elements for your list</h3>
+        <h3 style="font-size: small">Note: Clicking Update will reset your rankings for this list!</h3>
 
         @if (TempData.ContainsKey("SaveResult"))
         {
@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="form-group">
-                        <text class="control-label col-md-2" style="width: 7em">Your list</text>
+                        <text class="control-label col-md-2" style="width: 7em; font-weight: bold;">Your list</text>
                         @Html.TextAreaFor(model => model.TheList, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.TheList, "", new { @class = "text-danger" })
                     </div>

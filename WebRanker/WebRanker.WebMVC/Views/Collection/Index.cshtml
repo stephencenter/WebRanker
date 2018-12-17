@@ -7,7 +7,7 @@
     <body>
         @model IEnumerable<WebRanker.Models.ViewModel>
 
-        <h1 style="font-weight: bold;">Your Lists</h1>
+        <h3>Your Lists</h3>
         @Html.ActionLink("Create a new list", "Create", null, new { @class = "btn btn-success btn-large" })
         @Html.ActionLink("What is this website?", "Help", null, new { @class = "btn btn-info btn-large" })
         <br />
@@ -50,10 +50,10 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Rank", "Rank", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
-                        @Html.ActionLink("View", "Details", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
-                        @Html.ActionLink("Edit", "Edit", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
-                        @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large" })
+                        @Html.ActionLink("Rank", "Rank", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large btn-fixed-width" })
+                        @Html.ActionLink("View", "Details", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large btn-fixed-width" })
+                        @Html.ActionLink("Edit", "Edit", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large btn-fixed-width" })
+                        @Html.ActionLink("Delete", "Delete", "Collection", new { id = item.CollectionID }, new { @class = "btn btn-primary btn-large btn-fixed-width" })
                     </td>
                 </tr>
             }

@@ -7,9 +7,7 @@
 
     <body>
         @model WebRanker.Models.DetailsModel
-        <h1>
-            Your rankings for @Html.DisplayFor(model => model.Title)
-        </h1>
+        <h3>Your rankings for @Html.DisplayFor(model => model.Title)</h3>
 
         <dl class="dl-horizontal">
             @foreach (Item i in Model.TheList)

@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 3.5em;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -60,7 +59,7 @@ textarea {
 
 .navbar-inverse .navbar-brand {
     color: black;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .nav > li:nth-child(1) > a:nth-child(1) {
@@ -69,4 +68,14 @@ textarea {
 
 .nav > li:nth-child(2) > a:nth-child(1) {
     color: black;
+}
+
+.navbar {
+    height: 3em;
+}
+
+.btn-fixed-width {
+    width: 5em;
+    margin-bottom: 1px;
+    margin-top: 1px;
 }
